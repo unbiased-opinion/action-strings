@@ -19,6 +19,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: ./
+      - name: Runs `toLower` method
+        uses: ./
+        id: toLower
         with:
-          milliseconds: 1000
+          method: 'toLower'
+          value: 'HEllo tHeRE'
+
+      - name: Get output `toLower`
+        run: echo "${{ steps.toLower.outputs.output }}"
