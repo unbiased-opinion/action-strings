@@ -1,5 +1,5 @@
 name: 'build-test'
-on: # rebuild any PRs and main branch changes
+on:
   pull_request:
   push:
     branches:
@@ -7,18 +7,26 @@ on: # rebuild any PRs and main branch changes
       - 'releases/*'
 
 jobs:
-  build: # make sure build/ci work properly
+  build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       - run: |
           npm install
       - run: |
           npm run all
-  test: # make sure the action works on a clean machine without building
+
+  test:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
-      - uses: ./
+      - uses: actions/checkout@v3
+      - name: Runs `toLower` method
+        uses: ./
+        id: toLower
         with:
-          milliseconds: 1000
+          method: 'toLower'
+          value: 'HEllo tHeRE'
+
+      - name: Assert output of `toLower`
+        run: |
+          if [ "${{ steps.toLower.outputs.value }}" != "hello there" ]; then exit 1; fi

@@ -2,10 +2,13 @@ name: 'Strings'
 description: 'Github action providing utilities to manipulate strings'
 author: 'Lukasz Wisniewski'
 inputs:
-  function:
+  method:
     required: true
     description: 'name of the string transformation method'
     default: 'toLower'
+  value:
+    required: true
+    description: 'value to be passed to transformation method'
 runs:
   using: 'node16'
   main: 'dist/index.js'
