@@ -46,9 +46,6 @@ function run() {
         try {
             const method = core.getInput('method');
             const value = core.getInput('value');
-            if (!method || !value) {
-                throw new Error(`'method' and 'value' input parameters are required.`);
-            }
             switch (method) {
                 case 'toLower':
                     core.setOutput('output', (0, toLower_1.toLower)(value));
