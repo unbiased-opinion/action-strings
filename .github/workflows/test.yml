@@ -26,5 +26,6 @@ jobs:
           method: 'toLower'
           value: 'HEllo tHeRE'
 
-      - name: Get output `toLower`
-        run: echo "${{ steps.toLower.outputs.output }}"
+      - name: Assert output of `toLower`
+        if: ${{ steps.toLower.outputs.output }} != 'hello there'
+        run: exit 1
