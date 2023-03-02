@@ -40,11 +40,22 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
+const toLower_1 = __nccwpck_require__(432);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
-            const func = core.getInput('function');
-            core.setOutput('output', func);
+            const method = core.getInput('method');
+            const value = core.getInput('value');
+            if (!method || !value) {
+                throw new Error(`'method' and 'value' input parameters are required.`);
+            }
+            switch (method) {
+                case 'toLower':
+                    core.setOutput('output', (0, toLower_1.toLower)(value));
+                    break;
+                default:
+                    throw new Error(`${method} - not implemented.`);
+            }
         }
         catch (error) {
             if (error instanceof Error)
@@ -53,6 +64,21 @@ function run() {
     });
 }
 run();
+
+
+/***/ }),
+
+/***/ 432:
+/***/ ((__unused_webpack_module, exports) => {
+
+"use strict";
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.toLower = void 0;
+const toLower = (inputValue) => {
+    return inputValue.toLowerCase();
+};
+exports.toLower = toLower;
 
 
 /***/ }),
