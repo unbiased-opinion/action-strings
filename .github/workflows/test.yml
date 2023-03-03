@@ -42,3 +42,14 @@ jobs:
       - name: Assert output of `camelCase`
         run: |
           if [ "${{ steps.camelCase.outputs.value }}" != "ahhHelloThere" ]; then exit 1; fi
+
+      - name: Runs `capitalize` method
+        uses: ./
+        id: capitalize
+        with:
+          method: 'capitalize'
+          value: 'hello'
+
+      - name: Assert output of `capitalize`
+        run: |
+          if [ "${{ steps.capitalize.outputs.value }}" != "Hello" ]; then exit 1; fi

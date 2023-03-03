@@ -41,6 +41,7 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const camelCase_1 = __nccwpck_require__(982);
+const capitalize_1 = __nccwpck_require__(588);
 const toLower_1 = __nccwpck_require__(432);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
@@ -53,6 +54,9 @@ function run() {
                     break;
                 case 'camelCase':
                     core.setOutput('value', (0, camelCase_1.camelCase)(value));
+                    break;
+                case 'capitalize':
+                    core.setOutput('value', (0, capitalize_1.capitalize)(value));
                     break;
                 default:
                     throw new Error(`${method} - not implemented.`);
@@ -84,6 +88,25 @@ const camelCase = (inputValue) => {
     return lodash_1.default.camelCase(inputValue);
 };
 exports.camelCase = camelCase;
+
+
+/***/ }),
+
+/***/ 588:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.capitalize = void 0;
+const lodash_1 = __importDefault(__nccwpck_require__(250));
+const capitalize = (inputValue) => {
+    return lodash_1.default.capitalize(inputValue);
+};
+exports.capitalize = capitalize;
 
 
 /***/ }),
