@@ -28,4 +28,4 @@ jobs:
 
       - name: Assert output of `toLower`
         run: |
-          if [ "${{ steps.toLower.outputs.output }}" != 'hello there' ]; then exit 1; fi
+          if [ "${{ steps.toLower.outputs.output }}" != "fail" ]; then exit 1; fi
