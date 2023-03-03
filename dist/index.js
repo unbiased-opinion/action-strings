@@ -42,7 +42,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const core = __importStar(__nccwpck_require__(186));
 const camelCase_1 = __nccwpck_require__(982);
 const capitalize_1 = __nccwpck_require__(588);
-const toLower_1 = __nccwpck_require__(432);
+const lowerCase_1 = __nccwpck_require__(641);
 const deburr_1 = __nccwpck_require__(693);
 const kebabCase_1 = __nccwpck_require__(151);
 function run() {
@@ -51,8 +51,8 @@ function run() {
             const method = core.getInput('method');
             const value = core.getInput('value');
             switch (method) {
-                case 'toLower':
-                    core.setOutput('value', (0, toLower_1.toLower)(value));
+                case 'lowerCase':
+                    core.setOutput('value', (0, lowerCase_1.lowerCase)(value));
                     break;
                 case 'camelCase':
                     core.setOutput('value', (0, camelCase_1.camelCase)(value));
@@ -157,17 +157,17 @@ exports.kebabCase = kebabCase;
 
 /***/ }),
 
-/***/ 432:
+/***/ 641:
 /***/ ((__unused_webpack_module, exports) => {
 
 "use strict";
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.toLower = void 0;
-const toLower = (inputValue) => {
+exports.lowerCase = void 0;
+const lowerCase = (inputValue) => {
     return inputValue.toLowerCase();
 };
-exports.toLower = toLower;
+exports.lowerCase = lowerCase;
 
 
 /***/ }),

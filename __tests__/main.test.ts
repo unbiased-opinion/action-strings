@@ -1,17 +1,17 @@
 import { expect } from '@jest/globals'
-import { toLower } from '../src/methods/toLower';
+import { lowerCase } from '../src/methods/lowerCase';
 import { camelCase } from '../src/methods/camelCase';
 import { capitalize } from '../src/methods/capitalize';
 import { deburr } from '../src/methods/deburr';
 import { kebabCase } from '../src/methods/kebabCase';
 
 describe(`methods`, () => {
-    describe(`toLower`, () => {
+    describe(`lowerCase`, () => {
         const value = 'AHh, hELlO ThERE!';
         const expectedValue = 'ahh, hello there!';
 
         it(`transforms the string`, () => {
-            expect(toLower(value)).toBe(expectedValue);
+            expect(lowerCase(value)).toBe(expectedValue);
         });
     });
 

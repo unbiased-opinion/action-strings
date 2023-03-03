@@ -5,7 +5,7 @@ inputs:
   method:
     required: true
     description: 'name of the string transformation method'
-    default: 'toLower'
+    default: 'lowerCase'
   value:
     required: true
     description: 'value to be passed to transformation method'

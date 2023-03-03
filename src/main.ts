@@ -1,7 +1,7 @@
 import * as core from '@actions/core';
 import { camelCase } from './methods/camelCase';
 import { capitalize } from './methods/capitalize';
-import { toLower } from './methods/toLower';
+import { lowerCase } from './methods/lowerCase';
 import { deburr } from './methods/deburr';
 import { kebabCase } from './methods/kebabCase';
 
@@ -11,8 +11,8 @@ async function run(): Promise<void> {
         const value: string = core.getInput('value');
 
         switch(method) {
-            case 'toLower':
-                core.setOutput('value', toLower(value));
+            case 'lowerCase':
+                core.setOutput('value', lowerCase(value));
                 break;
             case 'camelCase':
                 core.setOutput('value', camelCase(value));

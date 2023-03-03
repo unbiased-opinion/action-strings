@@ -21,16 +21,16 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Runs `toLower` method
+      - name: Runs `lowerCase` method
         uses: ./
-        id: toLower
+        id: lowerCase
         with:
-          method: 'toLower'
+          method: 'lowerCase'
           value: 'HEllo tHeRE'
 
-      - name: Assert output of `toLower`
+      - name: Assert output of `lowerCase`
         run: |
-          if [ "${{ steps.toLower.outputs.value }}" != "hello there" ]; then exit 1; fi
+          if [ "${{ steps.lowerCase.outputs.value }}" != "hello there" ]; then exit 1; fi
 
       - name: Runs `camelCase` method
         uses: ./
