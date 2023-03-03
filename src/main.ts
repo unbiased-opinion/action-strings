@@ -1,4 +1,5 @@
 import * as core from '@actions/core';
+import { camelCase } from './methods/camelCase';
 import { toLower } from './methods/toLower';
 
 async function run(): Promise<void> {
@@ -9,6 +10,9 @@ async function run(): Promise<void> {
     switch(method) {
         case 'toLower':
             core.setOutput('value', toLower(value));
+            break;
+        case 'camelCase':
+            core.setOutput('value', camelCase(value));
             break;
         default:
             throw new Error(`${method} - not implemented.`);

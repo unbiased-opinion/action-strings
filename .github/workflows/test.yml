@@ -20,6 +20,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+
       - name: Runs `toLower` method
         uses: ./
         id: toLower
@@ -30,3 +31,14 @@ jobs:
       - name: Assert output of `toLower`
         run: |
           if [ "${{ steps.toLower.outputs.value }}" != "hello there" ]; then exit 1; fi
+
+      - name: Runs `camelCase` method
+        uses: ./
+        id: camelCase
+        with:
+          method: 'camelCase'
+          value: 'Ahh, Hello There!'
+
+      - name: Assert output of `camelCase`
+        run: |
+          if [ "${{ steps.camelCase.outputs.value }}" != "ahhHelloThere" ]; then exit 1; fi
