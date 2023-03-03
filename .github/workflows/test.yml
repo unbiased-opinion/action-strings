@@ -64,3 +64,14 @@ jobs:
       - name: Assert output of `deburr`
         run: |
           if [ "${{ steps.deburr.outputs.value }}" != "deja vu" ]; then exit 1; fi
+
+      - name: Runs `kebabCase` method
+        uses: ./
+        id: kebabCase
+        with:
+          method: 'kebabCase'
+          value: 'Foo Bar'
+
+      - name: Assert output of `kebabCase`
+        run: |
+          if [ "${{ steps.kebabCase.outputs.value }}" != "foo-bar" ]; then exit 1; fi

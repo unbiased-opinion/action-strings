@@ -44,6 +44,7 @@ const camelCase_1 = __nccwpck_require__(982);
 const capitalize_1 = __nccwpck_require__(588);
 const toLower_1 = __nccwpck_require__(432);
 const deburr_1 = __nccwpck_require__(693);
+const kebabCase_1 = __nccwpck_require__(151);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -61,6 +62,9 @@ function run() {
                     break;
                 case 'deburr':
                     core.setOutput('value', (0, deburr_1.deburr)(value));
+                    break;
+                case 'kebabCase':
+                    core.setOutput('value', (0, kebabCase_1.kebabCase)(value));
                     break;
                 default:
                     throw new Error(`${method} - not implemented.`);
@@ -130,6 +134,25 @@ const deburr = (inputValue) => {
     return lodash_1.default.deburr(inputValue);
 };
 exports.deburr = deburr;
+
+
+/***/ }),
+
+/***/ 151:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.kebabCase = void 0;
+const lodash_1 = __importDefault(__nccwpck_require__(250));
+const kebabCase = (inputValue) => {
+    return lodash_1.default.kebabCase(inputValue);
+};
+exports.kebabCase = kebabCase;
 
 
 /***/ }),
