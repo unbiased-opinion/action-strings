@@ -45,6 +45,7 @@ const capitalize_1 = __nccwpck_require__(588);
 const lowerCase_1 = __nccwpck_require__(641);
 const deburr_1 = __nccwpck_require__(693);
 const kebabCase_1 = __nccwpck_require__(151);
+const snakeCase_1 = __nccwpck_require__(877);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -65,6 +66,9 @@ function run() {
                     break;
                 case 'kebabCase':
                     core.setOutput('value', (0, kebabCase_1.kebabCase)(value));
+                    break;
+                case 'snakeCase':
+                    core.setOutput('value', (0, snakeCase_1.snakeCase)(value));
                     break;
                 default:
                     throw new Error(`${method} - not implemented.`);
@@ -168,6 +172,25 @@ const lowerCase = (inputValue) => {
     return inputValue.toLowerCase();
 };
 exports.lowerCase = lowerCase;
+
+
+/***/ }),
+
+/***/ 877:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.snakeCase = void 0;
+const lodash_1 = __importDefault(__nccwpck_require__(250));
+const snakeCase = (inputValue) => {
+    return lodash_1.default.snakeCase(inputValue);
+};
+exports.snakeCase = snakeCase;
 
 
 /***/ }),

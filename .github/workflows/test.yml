@@ -75,3 +75,14 @@ jobs:
       - name: Assert output of `kebabCase`
         run: |
           if [ "${{ steps.kebabCase.outputs.value }}" != "foo-bar" ]; then exit 1; fi
+
+      - name: Runs `snakeCase` method
+        uses: ./
+        id: snakeCase
+        with:
+          method: 'snakeCase'
+          value: 'Foo Bar'
+
+      - name: Assert output of `snakeCase`
+        run: |
+          if [ "${{ steps.snakeCase.outputs.value }}" != "foo_bar" ]; then exit 1; fi

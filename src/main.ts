@@ -4,6 +4,7 @@ import { capitalize } from './methods/capitalize';
 import { lowerCase } from './methods/lowerCase';
 import { deburr } from './methods/deburr';
 import { kebabCase } from './methods/kebabCase';
+import { snakeCase } from './methods/snakeCase';
 
 async function run(): Promise<void> {
     try {
@@ -25,6 +26,9 @@ async function run(): Promise<void> {
                 break;
             case 'kebabCase':
                 core.setOutput('value', kebabCase(value));
+                break;
+            case 'snakeCase':
+                core.setOutput('value', snakeCase(value));
                 break;
             default:
                 throw new Error(`${method} - not implemented.`);
