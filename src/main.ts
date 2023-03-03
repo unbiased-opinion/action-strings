@@ -2,6 +2,7 @@ import * as core from '@actions/core';
 import { camelCase } from './methods/camelCase';
 import { capitalize } from './methods/capitalize';
 import { toLower } from './methods/toLower';
+import { deburr } from './methods/deburr';
 
 async function run(): Promise<void> {
     try {
@@ -17,6 +18,9 @@ async function run(): Promise<void> {
                 break;
             case 'capitalize':
                 core.setOutput('value', capitalize(value));
+                break;
+            case 'deburr':
+                core.setOutput('value', deburr(value));
                 break;
             default:
                 throw new Error(`${method} - not implemented.`);

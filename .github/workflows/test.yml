@@ -53,3 +53,14 @@ jobs:
       - name: Assert output of `capitalize`
         run: |
           if [ "${{ steps.capitalize.outputs.value }}" != "Hello" ]; then exit 1; fi
+
+      - name: Runs `deburr` method
+        uses: ./
+        id: deburr
+        with:
+          method: 'deburr'
+          value: 'déjà vu'
+
+      - name: Assert output of `deburr`
+        run: |
+          if [ "${{ steps.deburr.outputs.value }}" != "deja vu" ]; then exit 1; fi

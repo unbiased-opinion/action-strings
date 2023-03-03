@@ -2,6 +2,7 @@ import { expect } from '@jest/globals'
 import { toLower } from '../src/methods/toLower';
 import { camelCase } from '../src/methods/camelCase';
 import { capitalize } from '../src/methods/capitalize';
+import { deburr } from '../src/methods/deburr';
 
 describe(`methods`, () => {
     describe(`toLower`, () => {
@@ -24,6 +25,12 @@ describe(`methods`, () => {
     describe(`capitalize`, () => {
         it(`transforms the string`, () => {
             expect(capitalize('foo bar')).toBe('Foo bar');
+        });
+    });
+
+    describe(`deburr`, () => {
+        it(`transforms the string`, () => {
+            expect(deburr('déjà vu')).toBe('deja vu');
         });
     });
 });

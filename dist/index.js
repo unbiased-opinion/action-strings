@@ -43,6 +43,7 @@ const core = __importStar(__nccwpck_require__(186));
 const camelCase_1 = __nccwpck_require__(982);
 const capitalize_1 = __nccwpck_require__(588);
 const toLower_1 = __nccwpck_require__(432);
+const deburr_1 = __nccwpck_require__(693);
 function run() {
     return __awaiter(this, void 0, void 0, function* () {
         try {
@@ -57,6 +58,9 @@ function run() {
                     break;
                 case 'capitalize':
                     core.setOutput('value', (0, capitalize_1.capitalize)(value));
+                    break;
+                case 'deburr':
+                    core.setOutput('value', (0, deburr_1.deburr)(value));
                     break;
                 default:
                     throw new Error(`${method} - not implemented.`);
@@ -107,6 +111,25 @@ const capitalize = (inputValue) => {
     return lodash_1.default.capitalize(inputValue);
 };
 exports.capitalize = capitalize;
+
+
+/***/ }),
+
+/***/ 693:
+/***/ (function(__unused_webpack_module, exports, __nccwpck_require__) {
+
+"use strict";
+
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.deburr = void 0;
+const lodash_1 = __importDefault(__nccwpck_require__(250));
+const deburr = (inputValue) => {
+    return lodash_1.default.deburr(inputValue);
+};
+exports.deburr = deburr;
 
 
 /***/ }),
