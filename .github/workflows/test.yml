@@ -27,5 +27,5 @@ jobs:
           value: 'HEllo tHeRE'
 
       - name: Assert output of `toLower`
-        if: ${{ steps.toLower.outputs.output }} != 'hello there'
-        run: exit 1
+        run: |
+          if [ "${{ steps.toLower.outputs.output }}" != 'hello there' ]; then exit 1; fi
